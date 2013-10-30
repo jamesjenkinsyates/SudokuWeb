@@ -7,6 +7,9 @@
 </head>
 <body>
 <div id="sudoku">
+
+
+
   <!-- one div for each row -->
   <% 3.times do |row| %>
     <div class='row'>
@@ -18,8 +21,10 @@
               <div class="cell-row">
              <% 3.times do |cell| %>
                   <div class="cell">
+                    <% cell_index = row * 27 + box * 3 + cell_row * 9 + cell %>
+                    <% cell_value = @current_solution[cell_index] %>
                     <!-- every cell will have an input field -->
-                    <input type="text">
+                    <input type="text" maxlength="1" autocomplete="off" value=<%= cell_value %> >
                   </div>
                 <% end %>
               </div>
